@@ -34,7 +34,7 @@ export default function Header(props, send) {
     axios.get("/api/users/user").then(res => {
         //console.log(res)
         if (res.data === "no session found"){
-          console.log("no session")
+          console.log("no session in Header.jsx")
         } else {
           //logedIn = true
           setIsLogedIn(true)
