@@ -1,0 +1,73 @@
+.one-card {
+	animation: dealCard .6s;
+	display: inline-block;
+}
+@keyframes dealCard{
+	0%{transform: translate(150px,-500px) rotate(-90deg)}
+	100%{}
+}
+
+.one-card-remove {
+	animation: removeCard .6s;
+	display: inline-block;
+}
+@keyframes removeCard{
+	0%{}
+	100%{transform: translate(-500px,-750px) rotate(90deg)}
+}
+
+.hand{
+	padding: 16px 12px 0px 12px;
+	position: relative;
+}
+
+.hand-active {
+	background-color: rgba(168, 255, 168, 0.678);
+	padding: 16px 12px 0px 12px;
+	border-radius: 25px;
+	position: relative;
+}
+
+.cards{
+	height: 150px;
+}
+
+.handValue-hidden{
+	visibility: hidden;
+}
+
+.handValue {
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.check {
+	color: goldenrod;
+	font-style: italic;
+	font-size: .8em;
+	animation: result .4s;
+	position: absolute;
+	top: -25px;
+	left: 40%;
+}
+.check-hide{
+	font-size: 0px;
+  display: none;
+}
+@keyframes result{
+	0%{
+		transform: translate(0px, 50px) rotate(20deg)
+	}
+		100%{transform: translate(0px, -20px) rotate(0deg)
+	}
+}
+
+.display{
+  font-family: 'ZCOOL XiaoWei', serif;
+	font-size: 32px;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+/* .hand-active .cards {
+	border: 10px dashed black;
+	display: inline;
+	height: 150;
+} */
