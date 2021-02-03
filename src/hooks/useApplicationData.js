@@ -58,11 +58,11 @@ export default function useApplicationData() {
   //Get's logged-in User's data, as well as all of our card informations
   useEffect(() => {
     Promise.all([
-      axios.get('/api/users/user'
-        // { headers: { 'Access-Control-Allow-Origin': '*' } }
+      axios.get('/api/users/user',
+         { headers: { 'Access-Control-Allow-Origin': '*' } }
         ),
-      axios.get('/api/cards'
-        // { headers: { 'Access-Control-Allow-Origin': '*' } }
+      axios.get('/api/cards',
+         { headers: { 'Access-Control-Allow-Origin': '*' } }
         )
     ]).then((all) => {
       let hand = []
