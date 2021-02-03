@@ -60,4 +60,4 @@ class Hand {
     }
 }
 
-module.exports = { Deck, Hand };
+export { Deck, Hand };
