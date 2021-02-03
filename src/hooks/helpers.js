@@ -45,4 +45,4 @@ const calculateBankrollChange = async (hands, bankroll) => {
 }
 
 
-module.exports = { checkResult, calculateBankrollChange }
+export { checkResult, calculateBankrollChange }
