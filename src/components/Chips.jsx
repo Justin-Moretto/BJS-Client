@@ -7,20 +7,20 @@ import clear from "./images/delete.png"
 import './CSS/Chips.css'
 export default function Chips(props) {
 
-let totalBet = 0;
-let bankroll = props.bankroll;
-let tokens = "tokens";
-let message = ""
+  let totalBet = 0;
+  let bankroll = props.bankroll;
+  let tokens = "tokens";
+  let message = ""
 
-for (const hand of props.hand) {
-  totalBet += hand.bet;
-}
-if (props.turn !== "bet"){
-  tokens = tokens +"-hidden"
-}
+  for (const hand of props.hand) {
+    totalBet += hand.bet;
+  }
+  if (props.turn !== "bet") {
+    tokens = tokens + "-hidden"
+  }
 
-if ( bankroll === 0){ 
-  message = "Refresh to reset bankroll"
+  if (bankroll === 0) {
+    message = "Refresh to reset bankroll"
   } else {
     message = `Bankroll: ${bankroll}`
   }
@@ -28,19 +28,20 @@ if ( bankroll === 0){
 
   return (
     <div class="betting">
-    <div class="Chips">
-      <h2 class="totalBet"> Total bet: ${totalBet} </h2>
-      <span class={tokens}>
-      <input type="image"  class="token" onClick={props.addBet5} src={five} alt="Wrong path" height="72" length="72"/>
-      <input type="image" class="token" onClick={props.addBet25} src={twentyFive} alt="Wrong path"  height="72" length="72"/>
-      <input type="image" class="token" onClick={props.addBet100} src={oneHundred} alt="Wrong path" height="72" length="72" />
-      <input type="image" class="token" onClick={props.addBet500} src={fiveHundred} alt="Wrong path" height="72" length="72" />
-      <input type="image" class="token" onClick={props.clearBet} src={clear} alt="Wrong path" />
-      </span>
+      <div class="Chips">
+        <span class="bankroll">
+          <h2> {message} </h2>
+          <h2 class="totalBet"> Total bet: ${totalBet} </h2>
+        </span>
+        <span class={tokens}>
+          <input type="image" class="token" onClick={props.addBet5} src={five} alt="Wrong path" height="72" length="72" />
+          <input type="image" class="token" onClick={props.addBet25} src={twentyFive} alt="Wrong path" height="72" length="72" />
+          <input type="image" class="token" onClick={props.addBet100} src={oneHundred} alt="Wrong path" height="72" length="72" />
+          <input type="image" class="token" onClick={props.addBet500} src={fiveHundred} alt="Wrong path" height="72" length="72" />
+          <input type="image" class="token" onClick={props.clearBet} src={clear} alt="Wrong path" />
+        </span>
       </div>
-      <section class="bankroll">
-        <h2> {message} </h2>
-      </section>
+
     </div>
   )
 }
