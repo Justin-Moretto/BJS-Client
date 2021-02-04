@@ -14,7 +14,6 @@ export default function Popup({ open, children }){
         <Card.Body>
           {children}
         </Card.Body>
-
       </Card>
   `</div>
     </>,

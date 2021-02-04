@@ -19,7 +19,7 @@ export default function Login({props, onClose, logIn }) {
                 email: userEmail,
                 password: userPassword
             }).then(res => {
-                console.log(res)
+                console.log("RESPONSE IN LOGIN.JSX: ",res)
                 if (res.data === false){
                     setShow(true)
                 } else {

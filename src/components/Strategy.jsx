@@ -6,14 +6,11 @@ import "./CSS/Popup.css"
 export default function Strategy( { onClose } ) {
     return (
 
-        
         <div>
-            <Form>
                 <div>
                     <img src="http://www.blackjackswitch.com/images/bj_switch.gif" alt="Whoops"></img>
                 </div>
                 <Button variant="outline-danger" onClick={onClose} >close</Button>
-            </Form>
         </div>
     )
 }
