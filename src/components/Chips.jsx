@@ -22,17 +22,17 @@ export default function Chips(props) {
   if (bankroll === 0) {
     message = "Refresh to reset bankroll"
   } else {
-    message = `Bankroll: ${bankroll}`
+    message = `Bankroll: $${bankroll}`
   }
 
 
   return (
     <div class="betting">
       <div class="Chips">
-        <span class="bankroll">
+        <div class="bankroll">
           <h2> {message} </h2>
           <h2 class="totalBet"> Total bet: ${totalBet} </h2>
-        </span>
+        </div>
         <span class={tokens}>
           <input type="image" class="token" onClick={props.addBet5} src={five} alt="Wrong path" height="72" length="72" />
           <input type="image" class="token" onClick={props.addBet25} src={twentyFive} alt="Wrong path" height="72" length="72" />

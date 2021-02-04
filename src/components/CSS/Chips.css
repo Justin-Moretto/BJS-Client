@@ -32,5 +32,10 @@
   font-family: 'ZCOOL XiaoWei', serif;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 	font-size: 32px
+}
 
+.bankroll h2 {
+  display: inline !important;
+  margin-right: 30px;
+  margin-left: 30px;
 }
