@@ -7,6 +7,9 @@ const checkResult = (player, dealer) => {
     // player has 21
   } else if (player.value === 21) {
     result = `WIN`;
+    if (player.cards.length === 2) {
+      result = `BLACKJACK`
+    }
     if (dealer.value === (21 || 22)) {
       result = `PUSH`;
       if (player.cards.length === 2) {
