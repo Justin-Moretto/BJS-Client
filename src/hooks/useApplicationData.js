@@ -6,16 +6,15 @@ import { Hand } from "../helpers/cardLogic";
 export default function useApplicationData() {
 
   const [state, setState] = useState({
-    user: {},
     cards: [],
     hand: [],
     dealer: {},
     currentHand: -1,
     turn: null,
     winnings: 0,
-    bankroll: 0,
+    bankroll: 5000,
     bet: 0,
-    initBankroll: 0,
+    initBankroll: 5000,
     actions: {
       reset: {
         name: "New Bet",
@@ -55,12 +54,9 @@ export default function useApplicationData() {
     }
   })
 
-  //Get's logged-in User's data, as well as all of our card informations
+  //Get's our card informations
   useEffect(() => {
     Promise.all([
-      axios.get('/api/users/user',
-         { headers: { 'Access-Control-Allow-Origin': '*' } }
-        ),
       axios.get('/api/cards',
          { headers: { 'Access-Control-Allow-Origin': '*' } }
         )
@@ -73,10 +69,7 @@ export default function useApplicationData() {
       updateActions.deal.enabled = true;
       setState(prev => ({
         ...prev,
-        user: all[0].data,
-        bankroll: all[0].data.bankroll,
-        initBankroll: all[0].data.bankroll,
-        cards: all[1].data,
+        cards: all[0].data,
         hand: hand,
         dealer: dealer,
         turn: "bet",
@@ -188,10 +181,6 @@ export default function useApplicationData() {
         verifyResults(state.hand).then(res => {
           calculateBankrollChange(res, state.bankroll).then(res => {
             updateBankroll(res);
-            axios.put(`api/users/${state.user.id}`, { bankroll: res })
-              .then(res => {
-                console.log("Bankroll updated")
-              })
           })
         })
         break;

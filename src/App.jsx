@@ -23,21 +23,6 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
-          <Route path="/login">
-            <Login/>
-          </Route>
-          <Route path="/deposit">
-            <Deposit />
-          </Route>
-          <Route path="/withdraw">
-            <Withdraw />
-          </Route>
-          <Route path="/rules">
-            <Rules />
-          </Route>
-          <Route path="/strategy">
-            <Strategy />
-          </Route>
           <Route path="/">
             <Home />
           </Route>
