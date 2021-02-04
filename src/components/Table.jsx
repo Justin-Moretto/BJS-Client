@@ -9,7 +9,8 @@ export default function Table(props) {
   // const deck = props.deck;
   const dealer = props.dealer;
   const hands = props.hand;
-
+  let totalHands = props.totalWins + props.totalDraws + props.totalLosses
+  
   const activeHandHighlight = (index) => {
     return (index === props.currentHand)
   }
@@ -37,7 +38,6 @@ export default function Table(props) {
     })
 
 
-
 const winPercentage = () => {
   if (totalHands > 0) {
     return (props.totalWins / totalHands).toFixed(2) * 100
@@ -61,10 +61,12 @@ return (
       <span id="bj"> Blackjack </span>
       <span id="switch"> Switch! </span>
     </h1>
+    <div id="stats">
       <p>Wins: {props.totalWins}</p>
       <p>Win percentage: {winPercentage()}%</p>
       <p>Blackjacks: {props.totalBlackjacks}</p>
       <p>Blackjack percentage: {blackjackPercentage()}%</p>
+    </div>
 
     {/* <div id="deck">
       DECK:
