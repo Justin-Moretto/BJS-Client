@@ -254,8 +254,6 @@ export default function Home(props) {
         turn={state.turn}
         hand={hand}
       />
-
-
     </div>
   )
 }

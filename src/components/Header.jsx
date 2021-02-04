@@ -28,6 +28,8 @@ export default function Header(props, send) {
                 <Strategy onClose={() => setSelectedMenu(null)}></Strategy>
               </Popup>
           </Nav>
+
+          <h3>By: <a href='https://github.com/Justin-Moretto'> Justin Moretto </a> & <a href="https://github.com/Josh-lerner">Josh Lerner</a></h3>
       </Navbar>
     )
   }
