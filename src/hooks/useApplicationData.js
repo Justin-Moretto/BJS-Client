@@ -12,9 +12,9 @@ export default function useApplicationData() {
     currentHand: -1,
     turn: null,
     winnings: 0,
-    bankroll: 5000,
+    bankroll: 10000,
     bet: 0,
-    initBankroll: 5000,
+    initBankroll: 10000,
     actions: {
       reset: {
         name: "New Bet",

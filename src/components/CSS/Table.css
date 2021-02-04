@@ -44,4 +44,8 @@ section {
 #stats {
   position: absolute;
   text-align: left;
+  margin-left: 52px;
+  font-size: 21px;
+  border: 1px whitesmoke solid;
+  padding: 14px;
 }

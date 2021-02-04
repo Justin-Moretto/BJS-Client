@@ -39,14 +39,14 @@ export default function Table(props) {
 
   const winPercentage = () => {
     if (props.stats.totalHands > 0) {
-      return (props.stats.totalWins / props.stats.totalHands).toFixed(2) * 100
+      return Math.floor((props.stats.totalWins / props.stats.totalHands).toFixed(2) * 100)
     } else {
       return "0"
     }
   }
   const blackjackPercentage = () => {
     if (props.stats.totalHands > 0) {
-      return (props.stats.totalBlackjacks / props.stats.totalHands).toFixed(2) * 100
+      return Math.floor((props.stats.totalBlackjacks / props.stats.totalHands).toFixed(2) * 100)
     } else {
       return "0"
     }
