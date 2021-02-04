@@ -1,6 +1,7 @@
 import { Button, Form } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./CSS/Popup.css"
+import strategy from "./images/bj_switch.gif"
 
 
 export default function Strategy( { onClose } ) {
@@ -8,7 +9,7 @@ export default function Strategy( { onClose } ) {
 
         <div>
                 <div>
-                    <img src="http://www.blackjackswitch.com/images/bj_switch.gif" alt="Whoops"></img>
+                    <img src={strategy} alt="Whoops"></img>
                 </div>
                 <Button variant="outline-danger" onClick={onClose} >close</Button>
         </div>
