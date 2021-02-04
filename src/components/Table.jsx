@@ -38,22 +38,22 @@ export default function Table(props) {
 
 
 
-// const winPercentage = () => {
-//   if (totalHands > 0) {
-//     return (props.totalWins / totalHands).toFixed(2) * 100
-//   } else {
-//     return "0"
-//   }
-// }
-// const blackjackPercentage = () => {
-//   if (totalHands > 0) {
-//     return (props.totalBlackjacks / totalHands).toFixed(2) * 100
-//   } else {
-//     return "0"
-//   }
-// };
+const winPercentage = () => {
+  if (totalHands > 0) {
+    return (props.totalWins / totalHands).toFixed(2) * 100
+  } else {
+    return "0"
+  }
+}
+const blackjackPercentage = () => {
+  if (totalHands > 0) {
+    return (props.totalBlackjacks / totalHands).toFixed(2) * 100
+  } else {
+    return "0"
+  }
+};
 
-//props.recordStats(wins, losses, draws, blackjacks);
+props.recordStats(wins, losses, draws, blackjacks);
 
 return (
   <section>
@@ -61,10 +61,10 @@ return (
       <span id="bj"> Blackjack </span>
       <span id="switch"> Switch! </span>
     </h1>
-    {/* <p>Wins: {props.totalWins}</p>
+      <p>Wins: {props.totalWins}</p>
       <p>Win percentage: {winPercentage()}%</p>
       <p>Blackjacks: {props.totalBlackjacks}</p>
-      <p>Blackjack percentage: {blackjackPercentage()}%</p> */}
+      <p>Blackjack percentage: {blackjackPercentage()}%</p>
 
     {/* <div id="deck">
       DECK:

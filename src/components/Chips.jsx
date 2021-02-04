@@ -10,6 +10,7 @@ export default function Chips(props) {
 let totalBet = 0;
 let bankroll = props.bankroll;
 let tokens = "tokens";
+let message = ""
 
 for (const hand of props.hand) {
   totalBet += hand.bet;
@@ -19,7 +20,9 @@ if (props.turn !== "bet"){
 }
 
 if ( bankroll === 0){ 
-  bankroll = "Refresh to reset bankroll"
+  message = "Refresh to reset bankroll"
+  } else {
+    message = `Bankroll: ${bankroll}`
   }
 
 
@@ -36,7 +39,7 @@ if ( bankroll === 0){
       </span>
       </div>
       <section class="bankroll">
-        <h2>   Bankroll: ${bankroll} </h2>
+        <h2> {message} </h2>
       </section>
     </div>
   )

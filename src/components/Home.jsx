@@ -57,17 +57,21 @@ export default function Home(props) {
   }
 
   const deal = () => {
-    actions.deal.enabled = false;
-    updateActions(-1, "deal")
-
-    setTimeout(() => { hit(hand[0]) }, 350);
-    setTimeout(() => { hit(hand[0]) }, 1400);
-
-    setTimeout(() => { hit(hand[1]) }, 700);
-    setTimeout(() => { hit(hand[1]) }, 1750);
-
-    setTimeout(() => { hit(dealer) }, 1050);
-    setTimeout(() => { updateActions(0, "player") }, 2200);
+    if (bet <= 0){
+      window.alert(`Place a bet to play!`)
+    } else{
+      actions.deal.enabled = false;
+      updateActions(-1, "deal")
+  
+      setTimeout(() => { hit(hand[0]) }, 350);
+      setTimeout(() => { hit(hand[0]) }, 1400);
+  
+      setTimeout(() => { hit(hand[1]) }, 700);
+      setTimeout(() => { hit(hand[1]) }, 1750);
+  
+      setTimeout(() => { hit(dealer) }, 1050);
+      setTimeout(() => { updateActions(0, "player") }, 2200);
+    }
   }
   actions.deal.execute = () => deal();
 
