@@ -38,15 +38,15 @@ export default function Table(props) {
 
 
   const winPercentage = () => {
-    if (totalHands > 0) {
-      return (props.totalWins / totalHands).toFixed(2) * 100
+    if (props.stats.totalHands > 0) {
+      return (props.stats.totalWins / props.stats.totalHands).toFixed(2) * 100
     } else {
       return "0"
     }
   }
   const blackjackPercentage = () => {
-    if (totalHands > 0) {
-      return (props.totalBlackjacks / totalHands).toFixed(2) * 100
+    if (props.stats.totalHands > 0) {
+      return (props.stats.totalBlackjacks / props.stats.totalHands).toFixed(2) * 100
     } else {
       return "0"
     }
@@ -59,17 +59,11 @@ export default function Table(props) {
         <span id="switch"> Switch! </span>
       </h1>
       <div id="stats">
-        <p>Wins: {props.totalWins}</p>
+        <p>Wins: {props.stats.totalWins}</p>
         <p>Win percentage: {winPercentage()}%</p>
-        <p>Blackjacks: {props.totalBlackjacks}</p>
+        <p>Blackjacks: {props.stats.totalBlackjacks}</p>
         <p>Blackjack percentage: {blackjackPercentage()}%</p>
       </div>
-
-      {/* <div id="deck">
-      DECK:
-          < br />
-      {deck.cards.length}
-    </div> */}
 
       <div id="dealer">
         <Hand

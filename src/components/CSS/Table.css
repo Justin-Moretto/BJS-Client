@@ -43,4 +43,5 @@ section {
 
 #stats {
   position: absolute;
+  text-align: left;
 }

@@ -96,7 +96,7 @@ export default function useApplicationData() {
       totalLosses: state.stats.totalLosses + losses,
       totalDraws: state.stats.totalDraws + draws,
       totalBlackjacks: state.stats.totalBlackjacks + blackjacks,
-      totalHands: state.stats.totalHands
+      totalHands: state.stats.totalHands + turnHands
     }
 
     setState(prev => ({ ...prev, stats: stats }));
