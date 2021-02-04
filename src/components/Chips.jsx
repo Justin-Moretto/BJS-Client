@@ -18,6 +18,11 @@ if (props.turn !== "bet"){
   tokens = tokens +"-hidden"
 }
 
+if ( bankroll === 0){ 
+  bankroll = "Refresh to reset bankroll"
+  }
+
+
   return (
     <div class="betting">
     <div class="Chips">
