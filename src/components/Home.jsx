@@ -27,7 +27,8 @@ export default function Home(props) {
     addBet,
     clearBet,
     updateBet,
-    calculateBet
+    calculateBet,
+    recordStats
   } = useApplicationData();
 
   let hand = state.hand;
@@ -37,16 +38,7 @@ export default function Home(props) {
   let bankroll = state.bankroll;
   let initBankroll = state.initBankroll;
 
-  const recordStats = (turnWins, turnLosses, turnDraws, turnBlackjacks) => {
-    //  console.log(`Record Stats before: wins ${totalWins} losses ${totalLosses} draws ${totalDraws} `)
-    if (state.turn === "reveal") {
-      totalWins += (turnWins / 2);
-      totalLosses += (turnLosses / 2);
-      totalDraws += (turnDraws / 2);
-      totalBlackjacks += (turnBlackjacks / 2);
-      console.log(`Record Stats after: wins ${totalWins} losses ${totalLosses} draws ${totalDraws} `)
-    }
-  }
+  
 
   const checkBlackjack = () => {
     if (hand[currentHand]) {
@@ -154,6 +146,7 @@ export default function Home(props) {
       } else {
         dealerFirstHit = false;
         updateActions(-1, "reveal");
+        recordStats(hand);
       }
     }
   }
@@ -241,11 +234,7 @@ export default function Home(props) {
         hand={hand}
         dealer={dealer}
         currentHand={currentHand}
-        recordStats={recordStats}
-        totalWins={totalWins}
-        totalLosses={totalLosses}
-        totalDraws={totalDraws}
-        totalBlackjacks={totalBlackjacks}
+        stats={state.stats}
         bet={bet}
         calculateBet={calculateBet}
         turn={state.turn}

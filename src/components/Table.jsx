@@ -9,7 +9,6 @@ export default function Table(props) {
   // const deck = props.deck;
   const dealer = props.dealer;
   const hands = props.hand;
-  let totalHands = props.totalWins + props.totalDraws + props.totalLosses
 
   const activeHandHighlight = (index) => {
     return (index === props.currentHand)
@@ -52,34 +51,6 @@ export default function Table(props) {
       return "0"
     }
   };
-
-  if (props.turn === 'reveal') {
-    let wins = 0;
-    let losses = 0;
-    let draws = 0;
-    let blackjacks = 0;
-    for (const hand of hands) {
-      switch (hand.result) {
-        case "WIN":
-          wins++;
-          break;
-        case "LOSS":
-          losses++;
-          break;
-        case "BUST":
-          losses++;
-          break;
-        case "PUSH":
-          draws++;
-          break;
-        case "BLACKJACK":
-          wins++;
-          blackjacks++;
-          break;
-      }
-    }
-    props.recordStats(wins, losses, draws, blackjacks);
-  }
 
   return (
     <section>

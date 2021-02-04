@@ -19,47 +19,95 @@ export default function useApplicationData() {
       reset: {
         name: "New Bet",
         enabled: false,
-        execute: ()=>console.log("action function error"),
+        execute: () => console.log("action function error"),
       },
-      deal:{
+      deal: {
         name: "Deal",
         enabled: false,
-        execute: ()=>console.log("action function error"),
+        execute: () => console.log("action function error"),
       },
       switch: {
         name: "Switch",
         enabled: false,
-        execute: ()=>console.log("action function error"),
+        execute: () => console.log("action function error"),
       },
       split: {
         name: "Split",
         enabled: false,
-        execute: ()=>console.log("action function error"),
+        execute: () => console.log("action function error"),
       },
       double: {
         name: "Double",
         enabled: false,
-        execute: ()=>console.log("action function error"),
+        execute: () => console.log("action function error"),
       },
       stay: {
         name: "Stay",
         enabled: false,
-        execute: ()=>console.log("action function error"),
+        execute: () => console.log("action function error"),
       },
       hit: {
         name: "Hit",
         enabled: false,
-        execute: ()=>console.log("action function error"),
+        execute: () => console.log("action function error"),
       },
+    },
+    stats: {
+      totalWins: 0,
+      totalLosses: 0,
+      totalDraws: 0,
+      totalBlackjacks: 0,
+      totalHands: 0
     }
   })
+
+  const recordStats = (hands) => {
+    //  console.log(`Record Stats before: wins ${totalWins} losses ${totalLosses} draws ${totalDraws} `)
+    let wins = 0;
+    let losses = 0;
+    let draws = 0;
+    let blackjacks = 0;
+    let turnHands = 0;
+
+    for (const hand of hands) {
+      turnHands++;
+      switch (hand.result) {
+        case "WIN":
+          wins++;
+          break;
+        case "LOSS":
+          losses++;
+          break;
+        case "BUST":
+          losses++;
+          break;
+        case "PUSH":
+          draws++;
+          break;
+        case "BLACKJACK":
+          wins++;
+          blackjacks++;
+          break;
+      }
+    }
+
+    let stats = {
+      totalWins: state.stats.totalWins + wins,
+      totalLosses: state.stats.totalLosses + losses,
+      totalDraws: state.stats.totalDraws + draws,
+      totalBlackjacks: state.stats.totalBlackjacks + blackjacks,
+      totalHands: state.stats.totalHands
+    }
+
+    setState(prev => ({ ...prev, stats: stats }));
+  }
 
   //Get's our card informations
   useEffect(() => {
     Promise.all([
       axios.get('/api/cards',
-         { headers: { 'Access-Control-Allow-Origin': '*' } }
-        )
+        { headers: { 'Access-Control-Allow-Origin': '*' } }
+      )
     ]).then((all) => {
       let hand = []
       hand[0] = new Hand();
@@ -168,7 +216,7 @@ export default function useApplicationData() {
       updateHand(hand[i]);
     }
     return hand;
-  }  
+  }
 
   //updateActions sets available actions for the player based on the current turn/phase.
   //player's bankroll is updated in back-end databse on reveal phase
@@ -225,6 +273,6 @@ export default function useApplicationData() {
   return {
     state, updateHand,
     spawnSplitHand, updateActions,
-    updateBankroll, addBet, clearBet, updateBet, sendBankroll
+    updateBankroll, addBet, clearBet, updateBet, sendBankroll, recordStats
   }
 }
