@@ -4,6 +4,7 @@ import { checkResult, calculateBankrollChange } from "./helpers.js"
 import { Hand } from "../helpers/cardLogic";
 
 export default function useApplicationData() {
+//test
 
   const [state, setState] = useState({
     cards: [],
