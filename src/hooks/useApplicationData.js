@@ -192,6 +192,8 @@ export default function useApplicationData() {
         let card2value = state.cards.find(x => x.name === hand.cards[1]).value;
         if (card1value === card2value) {
           hand.canSplit = true;
+        } else {
+          hand.canSplit = false;
         }
       } else {
         hand.canSplit = false;
