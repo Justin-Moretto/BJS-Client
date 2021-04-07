@@ -105,8 +105,9 @@ export default function useApplicationData() {
 
   //Get's our card informations
   useEffect(() => {
+    console.log('useEffect')
     Promise.all([
-      axios.get('/api/cards',
+      axios.get('https://blackjack-switch-server.herokuapp.com/api/cards',
         { headers: { 'Access-Control-Allow-Origin': '*' } }
       )
     ]).then((all) => {
@@ -116,6 +117,7 @@ export default function useApplicationData() {
       let dealer = new Hand();
       let updateActions = state.actions
       updateActions.deal.enabled = true;
+      console.log('cards from api:', all[0].data)
       setState(prev => ({
         ...prev,
         cards: all[0].data,
