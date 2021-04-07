@@ -1,4 +1,4 @@
-# This is the demo version of Blackjack Switch. See this repo [https://github.com/Justin-Moretto/blackjack-switch] to view our back-end code, including account management, hashed passwords, psql database and cookie-sessions.
+## This is the demo version of Blackjack Switch. See this repo [https://github.com/Justin-Moretto/blackjack-switch] to view our back-end code, including account management, hashed passwords, psql database and cookie-sessions.
 
 ## Getting Started with Create React App
 
