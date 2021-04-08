@@ -4,7 +4,6 @@ import { checkResult, calculateBankrollChange } from "./helpers.js"
 import { Hand } from "../helpers/cardLogic";
 
 export default function useApplicationData() {
-//test
 
   const [state, setState] = useState({
     cards: [],
@@ -105,7 +104,6 @@ export default function useApplicationData() {
 
   //Get's our card informations
   useEffect(() => {
-    console.log('useEffect')
     Promise.all([
       axios.get('https://blackjack-switch-server.herokuapp.com/api/cards',
         { headers: { 'Access-Control-Allow-Origin': '*' } }
@@ -117,7 +115,6 @@ export default function useApplicationData() {
       let dealer = new Hand();
       let updateActions = state.actions
       updateActions.deal.enabled = true;
-      console.log('cards from api:', all[0].data)
       setState(prev => ({
         ...prev,
         cards: all[0].data,

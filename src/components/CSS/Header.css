@@ -1,3 +1,4 @@
+
 /* Dropdown Button */
 .dropbtn {
   background-color: black;
@@ -11,7 +12,7 @@
 .dropdown {
   position: relative;
   float: right;
-  background-color: black
+  background-color: black;
 }
 
 /* Dropdown Content (Hidden by Default) */

@@ -54,10 +54,7 @@ export default function Table(props) {
 
   return (
     <section>
-      <h1>
-        <span id="bj"> Blackjack </span>
-        <span id="switch"> Switch! </span>
-      </h1>
+      
       <div id="stats">
         <p>Wins: {props.stats.totalWins}</p>
         <p>Win percentage: {winPercentage()}%</p>
