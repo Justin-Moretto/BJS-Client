@@ -10,7 +10,6 @@ export default function Popup({ open, children }){
     <>
     <div className="modal-container">
       <Card style={{width:"25rem"}}>
-        <Card.Img className="img" variant="top" src="https://gaming.unlv.edu/gallery/BJ.jpg" />
         <Card.Body>
           {children}
         </Card.Body>

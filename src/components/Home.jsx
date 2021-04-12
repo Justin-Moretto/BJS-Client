@@ -226,6 +226,16 @@ export default function Home(props) {
     }
   }
 
+  const connectingToServer = () => {
+    if (state.connectingToServer) {
+      return (
+        <div>
+          <h3>Connecting to server...</h3>
+        </div>
+      )
+    }
+  }
+
   return (
     <div class="table" >
       <Table
@@ -239,6 +249,7 @@ export default function Home(props) {
         calculateBet={calculateBet}
         turn={state.turn}
       />
+      {connectingToServer()}
       <Actions
         actions={actions}
       />

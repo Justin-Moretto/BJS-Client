@@ -58,7 +58,8 @@ export default function useApplicationData() {
       totalDraws: 0,
       totalBlackjacks: 0,
       totalHands: 0
-    }
+    },
+    connectingToServer: true
   })
 
   const recordStats = (hands) => {
@@ -121,7 +122,8 @@ export default function useApplicationData() {
         hand: hand,
         dealer: dealer,
         turn: "bet",
-        actions: updateActions
+        actions: updateActions,
+        connectingToServer: false
       }))
     });
   }, []);
