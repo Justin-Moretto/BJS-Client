@@ -1,0 +1,20 @@
+.DP {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  position: relative;
+
+}
+
+/* .DP:hover {
+  transform: scale(1.05) translateY(-.5rem);
+  box-shadow: 0 2.5rem 4rem rgba(black, .9);
+  z-index: 20;
+} */
+
+.name {
+  font-size: 36px;
+  color: black;
+  margin-bottom: 30px;
+}
+
