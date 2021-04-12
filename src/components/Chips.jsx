@@ -2,6 +2,7 @@ import five from "./images/chip5.png"
 import twentyFive from "./images/chip25.png"
 import oneHundred from "./images/chip100.png"
 import fiveHundred from "./images/chip500.png"
+import max from "./images/linkedin.jpg"
 import clear from "./images/delete.png"
 
 import './CSS/Chips.css'
@@ -38,6 +39,7 @@ export default function Chips(props) {
           <input type="image" class="token" onClick={props.addBet25} src={twentyFive} alt="Wrong path" height="72" length="72" />
           <input type="image" class="token" onClick={props.addBet100} src={oneHundred} alt="Wrong path" height="72" length="72" />
           <input type="image" class="token" onClick={props.addBet500} src={fiveHundred} alt="Wrong path" height="72" length="72" />
+          <input type="image" class="token" onClick={props.maxBet} src={max} alt="Wrong path" height="72" length="72" />
           <input type="image" class="token" onClick={props.clearBet} src={clear} alt="Wrong path" />
         </span>
       </div>

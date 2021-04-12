@@ -247,6 +247,7 @@ export default function Home(props) {
         addBet25={() => addBet(25)}
         addBet100={() => addBet(100)}
         addBet500={() => addBet(500)}
+        maxBet={() => addBet(state.bankroll/2)}
         clearBet={() => clearBet()}
         bet={bet}
         bankroll={bankroll}
