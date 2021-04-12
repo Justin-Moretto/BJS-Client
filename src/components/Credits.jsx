@@ -4,14 +4,14 @@ import "./CSS/Popup.css";
 import "./CSS/Rules.css";
 import "./CSS/Credits.css";
 import Josh from "./images/linkedin.jpg"
-import Justin from "./images/linkedin.jpg"
+import Justin from "./images/justin.jpg"
 
 
 export default function Credits({ onClose }) {
   return (
     <div>
         <h1> Created by: </h1>
-          <img src={Josh} alt="DP" class="DP" />
+          <img src={Justin} alt="DP" class="DP" />
             <a href="https://github.com/Justin-Moretto" target="_blank" class="name">
               <span>  Justin Moretto </span>
             </a>
