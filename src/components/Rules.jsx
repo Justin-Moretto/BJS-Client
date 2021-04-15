@@ -9,7 +9,7 @@ export default function Rules( { onClose } ) {
     return (
         <div>
             <Form>
-                <h1> Blackjack Switch rules</h1>
+                <h1> Blackjack Switch Rules</h1>
                 <div class="rules">
                 <ul>
                     <li>All rules are based on conventional blackjack unless otherwise noted.</li>
