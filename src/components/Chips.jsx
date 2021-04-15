@@ -39,7 +39,7 @@ export default function Chips(props) {
           <input type="image" class="token" onClick={props.addBet25} src={twentyFive} alt="Wrong path" height="72" length="72" />
           <input type="image" class="token" onClick={props.addBet100} src={oneHundred} alt="Wrong path" height="72" length="72" />
           <input type="image" class="token" onClick={props.addBet500} src={fiveHundred} alt="Wrong path" height="72" length="72" />
-          <input type="image" class="token" onClick={props.maxBet} src={max} alt="Wrong path" height="72" length="72" />
+          <input type="button" class="token" id="max" onClick={props.maxBet} value="Max Bet"/>
           <input type="image" class="token" onClick={props.clearBet} src={clear} alt="Wrong path" />
         </span>
       </div>

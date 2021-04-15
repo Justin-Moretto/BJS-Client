@@ -39,3 +39,9 @@
   margin-right: 30px;
   margin-left: 30px;
 }
+
+#max {
+  background-color: cyan;
+  border-radius: 50%;
+  height: 72px;
+}

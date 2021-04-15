@@ -9,7 +9,7 @@ export default function Popup({ open, children }){
   return ReactDom.createPortal(
     <>
     <div className="modal-container">
-      <Card style={{width:"25rem"}}>
+      <Card style={{width:"33rem"}}>
         <Card.Body>
           {children}
         </Card.Body>

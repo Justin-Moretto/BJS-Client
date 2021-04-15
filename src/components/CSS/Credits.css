@@ -1,9 +1,25 @@
-.DP {
-  width: 80%;
-  height: 80%;
+.DP-JM {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 15px;
+  border: black 1.5px solid;
+}
+
+.DP-JL {
+  width: 125px;
+  height: 125px;
   border-radius: 50%;
   position: relative;
+  object-fit: cover;
+  margin-right: 45px;
+  border: black 1.5px solid;
 
+}
+
+.container {
+  margin-top: 20px;
 }
 
 /* .DP:hover {
