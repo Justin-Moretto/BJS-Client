@@ -35,12 +35,12 @@ export default function Chips(props) {
           <h2 class="totalBet"> Total bet: ${totalBet} </h2>
         </div>
         <span class={tokens}>
-          <input type="image" class="token" onClick={props.addBet5} src={five} alt="Wrong path" height="72" length="72" />
-          <input type="image" class="token" onClick={props.addBet25} src={twentyFive} alt="Wrong path" height="72" length="72" />
-          <input type="image" class="token" onClick={props.addBet100} src={oneHundred} alt="Wrong path" height="72" length="72" />
-          <input type="image" class="token" onClick={props.addBet500} src={fiveHundred} alt="Wrong path" height="72" length="72" />
-          <input type="button" class="token" id="max" onClick={props.maxBet} value="Max Bet"/>
-          <input type="image" class="token" onClick={props.clearBet} src={clear} alt="Wrong path" />
+          <input type="button" class="token" id="five"onClick={props.addBet5} value="5"/>
+          <input type="button" class="token" id="twenty-five"onClick={props.addBet25} value="25" />
+          <input type="button" class="token" id="one-hundred"onClick={props.addBet100} value="100"/>
+          <input type="button" class="token" id="five-hundred"onClick={props.addBet500}  value="500"/>
+          <input type="button" class="token" id="max" onClick={props.maxBet} value="Max"/>
+          <input type="button" class="token" id="clear"onClick={props.clearBet}  value="Clear"/>
         </span>
       </div>
 
