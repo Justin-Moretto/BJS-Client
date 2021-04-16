@@ -18,6 +18,8 @@ let totalBlackjacks = 0;
 
 let dealerFirstHit = false;
 
+let previousBet = 0;
+
 export default function Home(props) {
   const {
     state,
@@ -27,8 +29,8 @@ export default function Home(props) {
     addBet,
     clearBet,
     updateBet,
-    calculateBet,
-    recordStats
+    recordStats,
+    rebet
   } = useApplicationData();
 
   let hand = state.hand;
@@ -49,17 +51,18 @@ export default function Home(props) {
   }
 
   const deal = () => {
+    //previousBet = bet;
     if (bet <= 0){
       window.alert(`Place a bet to play!`)
     } else{
       actions.deal.enabled = false;
       updateActions(-1, "deal")
   
-      setTimeout(() => { hit(hand[0]) }, 350);
-      setTimeout(() => { hit(hand[0]) }, 1400);
+      setTimeout(() => { hit(hand[0]); console.log('1') }, 350);
+      setTimeout(() => { hit(hand[0]); console.log('3') }, 1400);
   
-      setTimeout(() => { hit(hand[1]) }, 700);
-      setTimeout(() => { hit(hand[1]) }, 1750);
+      setTimeout(() => { hit(hand[1]); console.log('2') }, 700);
+      setTimeout(() => { hit(hand[1]); console.log('4') }, 1750);
   
       setTimeout(() => { hit(dealer) }, 1050);
       setTimeout(() => { updateActions(0, "player") }, 2200);
@@ -128,7 +131,8 @@ export default function Home(props) {
   }
   actions.switch.execute = () => swap(hand[0], hand[1]);
   
-  const clearTable = () => {
+  const clearTable = async () => {
+    previousBet = 0;
     updateActions(-1, "bet");
     setTimeout(()=> {
       dealer = new Hand();
@@ -136,6 +140,31 @@ export default function Home(props) {
     }, 600)
   }
   actions.reset.execute = () => clearTable();
+
+//   const rebet3 = new Promise((resolve, reject) => {    
+//     let rebet = true   
+//     if(rebet) {    
+//         resolve(clearTable());  
+//     } else {    
+//         reject('Uh-oh');  
+//     }
+// });
+
+
+
+
+
+  const rebet2 = () => {
+    // updateActions(-1, "bet");
+    clearTable().then(() => {
+        deal()
+    })
+    // setTimeout(()=> {
+    //   addBet(previousBet)
+    // }, 600)
+    //rebet()
+  }
+  actions.rebet.execute = () => rebet2();
 
   const dealerPlays = () => {
     if (state.turn === "dealer") {
@@ -189,7 +218,6 @@ export default function Home(props) {
         currentHand={currentHand}
         stats={state.stats}
         bet={bet}
-        calculateBet={calculateBet}
         turn={state.turn}
       />
       {connectingToServer()}

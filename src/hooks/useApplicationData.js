@@ -21,6 +21,11 @@ export default function useApplicationData() {
         enabled: false,
         execute: () => console.log("action function error"),
       },
+      rebet: {
+        name: "Rebet",
+        enabled: false,
+        execute: () => console.log("action function error"),
+      },
       deal: {
         name: "Deal",
         enabled: false,
@@ -160,13 +165,18 @@ export default function useApplicationData() {
     setState(prev => ({ ...prev, bankroll: bankroll }));
   }
 
-  const clearBet = () => {
+  const clearBet = async () => {
     let initBankroll = state.initBankroll
     let hand = []
     hand[0] = new Hand();
     hand[1] = new Hand();
     let dealer = new Hand();
     setState(prev => ({ ...prev, bankroll: initBankroll, bet: 0, hand: hand, dealer: dealer }));
+  }
+
+  const rebet = (prevBet) => {
+    clearBet();
+    console.log(state.bet)
   }
 
   ///Hand manipulation
@@ -230,6 +240,7 @@ export default function useApplicationData() {
       case "reveal":
         updateActions.reset.enabled = true;
         updateActions.split.enabled = false;
+        updateActions.rebet.enabled = true;
         verifyResults(state.hand).then(res => {
           calculateBankrollChange(res, state.bankroll).then(res => {
             updateBankroll(res);
@@ -240,11 +251,13 @@ export default function useApplicationData() {
         updateActions.deal.enabled = true;
         updateActions.reset.enabled = false;
         updateActions.split.enabled = false;
+        updateActions.rebet.enabled = false;
         break;
       case "deal":
         updateActions.deal.enabled = false;
         updateActions.reset.enabled = false;
         updateActions.split.enabled = false;
+        updateActions.rebet.enabled = false;
         break;
       case "player":
         let swapStatus = (currentHand === 0 && state.hand[1].cards.length === 2 && state.hand.length === 2)
@@ -254,6 +267,7 @@ export default function useApplicationData() {
         updateActions.split.enabled = state.hand[currentHand].canSplit;
         updateActions.switch.enabled = swapStatus;
         updateActions.double.enabled = true;
+        updateActions.rebet.enabled = false;
         break;
       case "dealer":
         updateActions.deal.enabled = false;
@@ -262,6 +276,7 @@ export default function useApplicationData() {
         updateActions.split.enabled = false;
         updateActions.switch.enabled = false;
         updateActions.double.enabled = false;
+        updateActions.rebet.enabled = false;
         break;
       default:
         updateActions.deal.enabled = false;
@@ -270,6 +285,7 @@ export default function useApplicationData() {
         updateActions.split.enabled = false;
         updateActions.switch.enabled = false;
         updateActions.double.enabled = false;
+        updateActions.rebet.enabled = false;
     }
     setState(prev => ({ ...prev, currentHand: currentHand, actions: updateActions, turn: phase }))
   }
@@ -277,6 +293,6 @@ export default function useApplicationData() {
   return {
     state, updateHand,
     spawnSplitHand, updateActions,
-    updateBankroll, addBet, clearBet, updateBet, sendBankroll, recordStats
+    updateBankroll, addBet, clearBet, updateBet, sendBankroll, recordStats, rebet
   }
 }
