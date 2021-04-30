@@ -240,7 +240,7 @@ export default function useApplicationData() {
       case "reveal":
         updateActions.reset.enabled = true;
         updateActions.split.enabled = false;
-        updateActions.rebet.enabled = true;
+        updateActions.rebet.enabled = false; //change this back to true. Disabled temporarily while I show off the game for an application
         verifyResults(state.hand).then(res => {
           calculateBankrollChange(res, state.bankroll).then(res => {
             updateBankroll(res);

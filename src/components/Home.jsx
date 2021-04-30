@@ -152,8 +152,6 @@ export default function Home(props) {
 
 
 
-
-
   const rebet2 = () => {
     // updateActions(-1, "bet");
     clearTable().then(() => {
